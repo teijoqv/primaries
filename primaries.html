@@ -11,9 +11,9 @@
 <button type="button" onclick="calculate()">Calculate</button>
 
 <p id="time"></p>
-<p style="width: 60%;" id="primaries"></p>
+<p align=left style="width: 60%;" id="primaries"></p>
 </div>
-    
+
 <script>
 function calculate(){
     let time = (new Date()).getTime();
@@ -34,7 +34,7 @@ function calculate(){
         }
     }
    document.getElementById("primaries").innerHTML = primaries.join(", ");
-   document.getElementById("time").innerHTML = "time: " + ((new Date()).getTime() - time);
+   document.getElementById("time").innerHTML = "time: " + ((new Date()).getTime() - time) + " ms";
 }
 
 </script>
