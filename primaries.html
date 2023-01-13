@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Primaries</h2>
+<p>Primaries up to the given maximum:</p>
+
+<input id="max">
+
+<button type="button" onclick="calculate()">Calculate</button>
+
+<p id="time"></p>
+<p style="width: 60%;" id="primaries"></p>
+
+<script>
+function calculate(){
+    let time = (new Date()).getTime();
+    let max = document.getElementById("max").value;
+    const numbers = [];
+    const primaries = [];
+
+    for (n=2; n<max; n++){
+        numbers.push(n);
+    }
+
+    for (let i = 0; i < max-2; i++){
+        if (numbers[i] != 0){
+            primaries.push(numbers[i]);
+            for (let k = (numbers[i])*(numbers[i]) - 2; k<max-2; k += i + 2){
+                numbers[k] = 0;
+            }
+        }
+    }
+   document.getElementById("primaries").innerHTML = primaries.join(", ");
+   document.getElementById("time").innerHTML = "time: " + ((new Date()).getTime() - time);
+}
+
+</script>
+
+</body>
+</html>
